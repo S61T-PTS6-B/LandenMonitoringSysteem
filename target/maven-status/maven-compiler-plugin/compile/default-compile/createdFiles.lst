@@ -3,10 +3,12 @@ Logic\StatusMessageProviderImpl.class
 controller\StatusBean.class
 Logic\StatusMessageProvider.class
 controller\MessageBean.class
+Logic\SystemCheckTimerTask.class
 Model\SystemStatus.class
 Logic\SystemStatusProviderImpl.class
 Logic\SystemStatusProvider.class
 Model\StatusMessage.class
 com\sandervandenhout\monitoringsysteem\GenericResource.class
 Service\SystemStatusService.class
+Service\StatusChecker.class
 Service\StatusMessageService.class

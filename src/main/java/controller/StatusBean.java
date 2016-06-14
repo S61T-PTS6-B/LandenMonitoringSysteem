@@ -72,10 +72,12 @@ public class StatusBean implements Serializable {
         this.rekeningOverheidStatus.setStatus(rekeningOverheidStatus);
     }
 
-    public List<StatusMessage> getStatusmessages() {
+    public List<StatusMessage> getStatusmessages() { 
+        sss.StartChecks();
         this.statusmessages = new ArrayList<>();
         statusmessages = sms.FindAllStatusMessages();
         return this.statusmessages;
+       
     }
 
     public void setStatusmessages(List<StatusMessage> statusmessages) {

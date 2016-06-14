@@ -5,7 +5,8 @@
  */
 package Service;
 
-import Service.SystemStatusService;
+import Logic.SystemCheckTimerTask;
+import java.util.Timer;
 import javax.inject.Inject;
 
 /**
@@ -13,11 +14,13 @@ import javax.inject.Inject;
  * @author Sander
  */
 public class StatusChecker {
-    @Inject
-   SystemStatusService sss;
-    
-    private void checkSystems()
-    {
-        
+
+    SystemCheckTimerTask tt = new SystemCheckTimerTask();
+    Timer timer;
+
+    public void checkSystems() {
+        timer = new Timer(true);
+        timer.scheduleAtFixedRate(tt, 0, 300 * 1000);
+        System.out.println("TimerTask started");
     }
 }

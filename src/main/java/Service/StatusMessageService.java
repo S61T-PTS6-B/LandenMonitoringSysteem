@@ -37,6 +37,7 @@ public class StatusMessageService {
 
     public void CreateStatusMessage(StatusMessage sm) {
         smp.createStatusMessage(sm);
+        sss.incomingSystemStatus(sm);
     }
 
     public List<StatusMessage> FindAllStatusMessages() {

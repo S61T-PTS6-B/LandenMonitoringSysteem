@@ -6,7 +6,7 @@
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>MonitorSysteem</title>
-        <meta name="author" content="Riccardo Massera"></meta>
+        <meta name="author" content="Sander van den Hout"></meta>
     </h:head>
     <h:body style="padding-top: 60px">
         <b:navBar brand="MonitorSysteem" brandHref="#" inverse="true" fixed="top" fluid="true">
@@ -15,8 +15,10 @@
             <b:row>
                 <b:column col-sm="3" col-md="2" styleClass="sidebar">
                     <b:listLinks>
-                        <b:navLink header="Dasboard Links" />
+                        <b:navLink header="Dasboard Links" /> 
+                        <b:navLink href="StatusPageDUI.xhtml" value="Dashboard Duitlsnad" active="true"/>
                         <b:navLink href="CreateMessages.xhtml" value="Status Messages" active="true"/>
+                       
                     </b:listLinks>
                 </b:column>
                 <b:column col-sm="9" offset-sm="3" col-md="10" offset="2" styleClass="main">
@@ -51,7 +53,7 @@
                     <h1>Overzicht status</h1>
                     <hr/>
                     <b:row styleClass="table-responsive">
-                        <h:dataTable styleClass="table table-striped" value="#{statusbean.statusmessages}" var="item" rows="15">
+                        <h:dataTable styleClass="table table-striped" value="#{statusbean.statusmessages}" var="item" rows="0">
                             <h:column>
                                 <f:facet name="header"><h:outputText value="#" /></f:facet>
                                 <h:outputText value="" />
@@ -65,7 +67,7 @@
                                 <h:outputText value="#{item.message}" />
                             </h:column>
                             <h:column>
-                                <f:facet name="header"><h:outputText value="date" /></f:facet>
+                                <f:facet name="header"><h:outputText value="Date" /></f:facet>
                                 <h:outputText value="#{item.date}" />
                             </h:column>
                         </h:dataTable>

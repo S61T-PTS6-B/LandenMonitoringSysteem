@@ -24,9 +24,9 @@
                         <h1>Status Message Creation</h1>
                         <hr/>
                         <h:selectOneMenu value="#{messagebean.systeemnaam}">
-                            <f:selectItem itemValue="RekeningRijder Overheid" itemLabel="RekeningRijder Overheid" />
+                            <f:selectItem itemValue="RekeningAdministratieOverheid" itemLabel="RekeningAdministratieOverheid" />
                             <f:selectItem itemValue="Politiesysteem" itemLabel="Politiesysteem" />
-                            <f:selectItem itemValue="RekeningRijder Applicatie" itemLabel="RekeningRijder Applicatie" />
+                            <f:selectItem itemValue="RekeningRijder Applicatie" itemLabel="RekeningRijder" />
                             <f:selectItem itemValue="Verplaatsingssysteem" itemLabel="Verplaatsingssysteem" />
                             <f:selectItem itemValue="Alle systemen" itemLabel="Alle Systemen"/>
                         </h:selectOneMenu>
@@ -35,7 +35,7 @@
                         <b:commandButton  value="Submit" action="#{messagebean.CreateMessage()}" />
                     </h:form>
                     <b:row styleClass="table-responsive">
-                        <h:dataTable styleClass="table table-striped" value="#{statusbean.statusmessages}" var="item" rows="15">
+                        <h:dataTable styleClass="table table-striped" value="#{statusbean.statusmessages}" var="item" rows="0">
                             <h:column>
                                 <f:facet name="header"><h:outputText value="#" /></f:facet>
                                 <h:outputText value="" />

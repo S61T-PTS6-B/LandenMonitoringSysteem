@@ -71,22 +71,50 @@ public class SystemStatusService {
         return politiestatus;
     }
 
+    //Handler voor inkomende statusmessages.
     public void incomingSystemStatus(StatusMessage s) {
         if (s.getSysteemNaam().toLowerCase().contains("rekeningrijder")) {
             this.rekeningrijderstatus.ChangeStatus();
             this.ssp.createSystemStatus(rekeningrijderstatus);
-            
+
         } else if (s.getSysteemNaam().toLowerCase().contains("overheid")) {
             this.overheidsstatus.ChangeStatus();
             this.ssp.createSystemStatus(overheidsstatus);
-        }
-        else if (s.getSysteemNaam().toLowerCase().contains("politie")) {
+        } else if (s.getSysteemNaam().toLowerCase().contains("politie")) {
             this.politiestatus.ChangeStatus();
             this.ssp.createSystemStatus(politiestatus);
-        }
-        else if (s.getSysteemNaam().toLowerCase().contains("verplaatsing")) {
+        } else if (s.getSysteemNaam().toLowerCase().contains("verplaatsing")) {
             this.verplaatsingsstatus.ChangeStatus();
             this.ssp.createSystemStatus(verplaatsingsstatus);
+        } else if (s.getSysteemNaam().toLowerCase().contains("alle")) {
+            //Verplaatsing
+            if (verplaatsingsstatus.isOnline()) {
+                this.verplaatsingsstatus.setOnline(false);
+            }
+            this.ssp.createSystemStatus(verplaatsingsstatus);
+
+            //politiesysteem
+            if (politiestatus.isOnline()) {
+                this.politiestatus.setOnline(false);
+            }
+            this.ssp.createSystemStatus(politiestatus);
+
+            //overheid
+            if (overheidsstatus.isOnline()) {
+                this.overheidsstatus.setOnline(false);
+            }
+            this.ssp.createSystemStatus(overheidsstatus);
+
+            //rekeningrijder
+            if (rekeningrijderstatus.isOnline()) {
+                this.rekeningrijderstatus.setOnline(false);
+            }
+            this.ssp.createSystemStatus(rekeningrijderstatus);
         }
+    }
+    public void StartChecks()
+    {
+        StatusChecker sc = new StatusChecker();
+        sc.checkSystems();
     }
 }

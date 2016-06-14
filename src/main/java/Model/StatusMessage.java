@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 /**
@@ -37,7 +38,7 @@ public class StatusMessage implements Serializable {
 
     private String SysteemNaam;
     private String Message;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     private final Calendar creationDate;
     @Transient
     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss");

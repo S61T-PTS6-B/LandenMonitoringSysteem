@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>MonitorSysteem</title>
+        <meta name="author" content="Sander van den Hout"></meta>
+    </h:head>
+    <h:body style="padding-top: 60px">
+        <b:navBar brand="MonitorSysteem" brandHref="#" inverse="true" fixed="top" fluid="true">
+        </b:navBar>
+        <b:container fluid="true">
+            <b:row>
+                <b:column col-sm="3" col-md="2" styleClass="sidebar">
+                    <b:listLinks>
+                        <b:navLink header="Dasboard Links" />
+                          <b:navLink href="StatusPage.xhtml" value="Dashboard Duitsland" active="true"/>
+                        <b:navLink href="CreateMessages.xhtml" value="Status Messages" active="true"/>
+                    </b:listLinks>
+                </b:column>
+                <b:column col-sm="9" offset-sm="3" col-md="10" offset="2" styleClass="main">
+                    <h1>Dashboard</h1>
+                    <br/>
+                    <b:row styleClass="placeholders">
+                        <b:column col-xs="6" col-sm="3" styleClass="placeholder">
+                            <h:graphicImage 
+                                value="http://i.imgur.com/xqxVJWm.png" class="img-responsive" alt="OverheidIcon"/>
+                            <h4>RekeningRijder Overheid</h4>
+                            <span class="text-muted">#{statusbean.rekeningOverheidStatus}</span>
+                        </b:column>
+                        <b:column col-xs="6" col-sm="3" styleClass="placeholder">
+                            <h:graphicImage 
+                                value="http://i.imgur.com/o89OnrS.png" class="img-responsive" alt="PolitieIcon"/>
+                            <h4>Politiesysteem</h4>
+                            <span class="text-muted">#{statusbean.politieStatus}</span>
+                        </b:column>
+                        <b:column col-xs="6" col-sm="3" styleClass="placeholder">
+                             <h:graphicImage 
+                                value="http://i.imgur.com/gM7cwYa.png" class="img-responsive" alt="RekeningrijderIcon"/>
+                            <h4>RekeningRijder Applicatie</h4>
+                            <span class="text-muted">#{statusbean.rekeningrijderStatus}</span>
+                        </b:column>
+                        <b:column col-xs="6" col-sm="3" styleClass="placeholder">
+                            <h:graphicImage 
+                                value="http://i.imgur.com/61H4tIS.png" class="img-responsive" alt="VerplaatsingsIcon"/>
+                            <h4>Verplaatsingssysteem</h4>
+                            <span class="text-muted">#{statusbean.verplaatsingsStatus}</span>
+                        </b:column>
+                    </b:row>
+                    <h1>Overzicht status</h1>
+                    <hr/>
+                    <b:row styleClass="table-responsive">
+                        <h:dataTable styleClass="table table-striped" value="#{statusbean.statusmessages}" var="item" rows="0">
+                            <h:column>
+                                <f:facet name="header"><h:outputText value="#" /></f:facet>
+                                <h:outputText value="" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"><h:outputText value="Systeem" /></f:facet>
+                                <h:outputText value="#{item.systeemNaam}" />
+                            </h:column>
+                             <h:column>
+                                <f:facet name="header"><h:outputText value="Message" /></f:facet>
+                                <h:outputText value="#{item.message}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"><h:outputText value="Date" /></f:facet>
+                                <h:outputText value="#{item.date}" />
+                            </h:column>
+                        </h:dataTable>
+                    </b:row>
+                </b:column>
+            </b:row>
+        </b:container> 
+        <style type="text/css">
+        .sub-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .navbar-fixed-top {
+            border: 0 none;
+        }
+        .sidebar {
+            display: none;
+        }
+        @media (min-width: 768px) {
+        .sidebar {
+            background-color: #f5f5f5;
+            border-right: 1px solid #eee;
+            bottom: 0;
+            display: block;
+            left: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 20px;
+            position: fixed;
+            top: 51px;
+            z-index: 1000;
+        }
+        }
+        .nav-list {
+            margin-bottom: 20px;
+            margin-left: -20px;
+            margin-right: -21px;
+        }
+        .nav-list > li > a {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .nav-list > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+            background-color: #428bca;
+            color: #fff;
+        }
+        .main {
+            padding: 20px;
+        }
+        @media (min-width: 768px) {
+        .main {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        }
+        .main .page-header {
+            margin-top: 0;
+        }
+        .placeholders {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .placeholders h4 {
+            margin-bottom: 0;
+        }
+        .placeholder {
+            margin-bottom: 20px;
+        }
+        .placeholder img {
+            border-radius: 50%;
+            display: inline-block;
+        }
+        </style>
+    </h:body>
+</html>

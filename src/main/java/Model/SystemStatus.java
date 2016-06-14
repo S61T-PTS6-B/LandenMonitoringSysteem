@@ -20,8 +20,8 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "systemstatus")
 @NamedQueries({
-   @NamedQuery(name="findstatusmessagebyname",
-              query="SELECT e FROM SystemStatus e WHERE e.Systeemnaam = :systeemnaam")
+    @NamedQuery(name = "findstatusmessagebyname",
+            query = "SELECT e FROM SystemStatus e WHERE e.Systeemnaam = :systeemnaam")
 })
 public class SystemStatus implements Serializable {
 
@@ -75,7 +75,8 @@ public class SystemStatus implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public void ChangeStatus(){
-       this.online = !this.online;
+
+    public void ChangeStatus() {     
+            this.online = !this.online;
     }
 }
